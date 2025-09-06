@@ -67,7 +67,7 @@ export default function SignIn() {
                 value={identifier}
                 onChange={(e) => setIdentifier(e.target.value)}
                 placeholder="username or email"
-                className="w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                className="text-black placeholder-gray-200 w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
                 required
               />
               <span className="absolute right-3 top-3 text-xl">👤</span>
@@ -81,7 +81,7 @@ export default function SignIn() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
-                className="w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                className="text-black placeholder-gray-200 w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
                 required
               />
               <button

@@ -174,7 +174,7 @@ export default function SignUp() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your full name"
-              className="mb-4 w-full rounded-lg border px-4 py-3 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="text-black placeholder-gray-200 mb-4 w-full rounded-lg border px-4 py-3 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
               required
             />
 
@@ -186,7 +186,7 @@ export default function SignUp() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Choose a username (letters, numbers, _ )"
-                className="w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                className="text-black placeholder-gray-200 w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
                 required
               />
               {/* small status area under input */}
@@ -220,7 +220,7 @@ export default function SignUp() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="mb-4 w-full rounded-lg border px-4 py-3 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="text-black placeholder-gray-200 mb-4 w-full rounded-lg border px-4 py-3 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
               required
             />
 
@@ -232,7 +232,7 @@ export default function SignUp() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter a password"
-                className="w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+                className="text-black placeholder-gray-200 w-full rounded-lg border px-4 py-3 pr-10 focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
                 required
               />
               <button

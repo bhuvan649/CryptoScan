@@ -86,7 +86,7 @@ export default function VerifyEmail() {
               maxLength={6}
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              className="mb-4 w-full rounded-lg border px-4 py-3 text-center text-2xl tracking-widest focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
+              className="text-black placeholder-gray-200 mb-4 w-full rounded-lg border px-4 py-3 text-center text-2xl tracking-widest focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
               required
             />
 
