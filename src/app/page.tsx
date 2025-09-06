@@ -14,15 +14,6 @@ export default function Home() {
             <Link href="/" className="text-gray-700 hover:text-black">
               Home
             </Link>
-            <Link href="/upload" className="text-gray-700 hover:text-black">
-              Upload
-            </Link>
-            <Link href="#" className="text-gray-700 hover:text-black">
-              Training
-            </Link>
-            <Link href="#" className="text-gray-700 hover:text-black">
-              Performance
-            </Link>
             <Link
               href="/sign-in"
               className="rounded-lg bg-black px-4 py-2 text-white"
