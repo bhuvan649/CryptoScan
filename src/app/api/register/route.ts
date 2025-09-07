@@ -7,6 +7,12 @@ import { generateOtp } from "@/lib/otp";
 import { sendOtpMail } from "@/lib/mailer";
 import bcrypt from "bcryptjs";
 
+// Define a type for MongoDB duplicate key errors
+interface MongoDuplicateKeyError extends Error {
+  code: number;
+  keyValue: Record<string, string>;
+}
+
 export async function POST(req: Request) {
   try {
     const { name, username, email, password } = await req.json();
@@ -63,9 +69,15 @@ export async function POST(req: Request) {
   } catch (err: unknown) {
     console.error("register error", err);
 
-    if (err instanceof Error && (err as any).code === 11000) {
-      // For MongoDB duplicate key error
-      const key = Object.keys((err as any).keyValue || {})[0];
+    // Check if it's a Mongo duplicate key error
+    if (
+      typeof err === "object" &&
+      err !== null &&
+      "code" in err &&
+      (err as MongoDuplicateKeyError).code === 11000
+    ) {
+      const mongoErr = err as MongoDuplicateKeyError;
+      const key = Object.keys(mongoErr.keyValue || {})[0];
       return NextResponse.json(
         { error: `${key || "Field"} already exists` },
         { status: 400 }
