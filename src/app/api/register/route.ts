@@ -29,6 +29,7 @@ export async function POST(req: Request) {
     const existingUser = await User.findOne({
       $or: [{ username: username.toLowerCase() }, { email: email.toLowerCase() }],
     });
+
     if (existingUser) {
       if (existingUser.username === username.toLowerCase()) {
         return NextResponse.json({ error: "Username already taken" }, { status: 400 });
@@ -59,12 +60,16 @@ export async function POST(req: Request) {
     await sendOtpMail(email, rawOtp);
 
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("register error", err);
 
-    if (err?.code === 11000) {
-      const key = Object.keys(err.keyValue || {})[0];
-      return NextResponse.json({ error: `${key || "Field"} already exists` }, { status: 400 });
+    if (err instanceof Error && (err as any).code === 11000) {
+      // For MongoDB duplicate key error
+      const key = Object.keys((err as any).keyValue || {})[0];
+      return NextResponse.json(
+        { error: `${key || "Field"} already exists` },
+        { status: 400 }
+      );
     }
 
     return NextResponse.json({ error: "Server error" }, { status: 500 });
